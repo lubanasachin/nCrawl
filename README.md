@@ -65,4 +65,4 @@ http://localhost:8000/
 
 ### View URI Details (images, css, js)
 
-![Report Dashboard](http://meetonsnap.com/viewlink.png)
+![Report Dashboard](http://meetonsnap.com/viewdetails.png)
