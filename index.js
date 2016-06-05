@@ -25,7 +25,7 @@ if (cluster.isMaster) {
 	//on worker process exit, refork it again
 	cluster.on('exit', function (worker) {
 		console.log('Worker ' + worker.id + ' died :(');
-		startWorker();
+		//startWorker();
 	});
 
 	//on worker process started

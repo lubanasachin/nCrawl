@@ -16,8 +16,8 @@ var request 		= require("request"),
 exports.init = function(crawlme) {
 
 	redisClient.on("error", function (err) {
-		console.log("Redis connection failed- ", err);
-		return;
+		console.log("Redis connection failed");
+		process.exit();
 	});
 
 	var urlData     = crawlme.match(/^(http(s?)):\/\/(.*)?/),
