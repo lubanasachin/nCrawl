@@ -49,7 +49,7 @@ angular.module('crawlReportApp')
 		$scope.showModal = function(url,type,data) {
 			document.getElementById("overlayDiv").style.display = "block";
 			document.getElementById("boxTitle").innerHTML = type.toUpperCase();
-			var dataStr = '<table>';
+			var dataStr = '<table style="border:none;">';
 			data.forEach(function(cont) {
 				dataStr += "<tr><td style='text-align:left;text-indent:10px;'>"+cont+"</td></tr>";
 			});
