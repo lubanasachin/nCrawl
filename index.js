@@ -1,9 +1,22 @@
 'use strict'
 
 var cluster = require('cluster'),
-	args = process.argv;
+	args = process.argv,
+	crawlme = args[2];
 
-if(args[2] == undefined || args[2] == '') {
+if(crawlme == undefined || crawlme == '') {
+	console.log("Usage node index.js 'http://xyz.com'");
+	return;
+}
+
+var urlData = crawlme.match(/^(http(s?)):\/\/(.*)?/),
+	scheme  = (!urlData || !urlData[1]) ? '' : urlData[1],
+	domain	= (!urlData || !urlData[3]) ? '' : urlData[3],
+	hostArr = domain.split("/"),
+	host = hostArr[0];
+
+if(scheme == '' || host == '') {
+	console.log("Invalid web URI passed. Please pass a FQDN URI");
 	console.log("Usage node index.js 'http://xyz.com'");
 	return;
 }
@@ -91,7 +104,8 @@ if (cluster.isMaster) {
 	function onListening() {
 		var addr = server.address();
 		var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
-		crawl.init(args[2]);
+		var fqdn = scheme+"://"+host;
+		crawl.init(fqdn,host,scheme);
 	}
 
 	module.exports = app;

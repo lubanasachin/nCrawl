@@ -13,22 +13,18 @@ var request 		= require("request"),
  * init crawling process 
  * @param string crawlme (website to be crawled)
 */
-exports.init = function(crawlme) {
-
+exports.init = function(fqdn,host,scheme) {
+	base_url = fqdn;
 	redisClient.on("error", function (err) {
 		console.log("Redis connection failed");
 		process.exit();
 	});
 
-	var urlData     = crawlme.match(/^(http(s?)):\/\/(.*)?/),
-		scheme      = urlData[1],
-		host        = urlData[3],
-		pattern     = "^http(s?)\:\/\/"+host;
-
-		base_url 	= scheme+"://"+host;
+	var	pattern     = "^http(s?)\:\/\/"+host;
 		regtest 	= new RegExp(pattern);
 
-	checkIfAlreadySeen([crawlme]);
+	console.log(base_url);
+	checkIfAlreadySeen([base_url]);
 	setTimeout(getPendingLinks,2000);
 }
 
