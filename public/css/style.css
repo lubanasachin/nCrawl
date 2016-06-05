@@ -1,0 +1,20 @@
+body {margin:0;padding:0;font-family: arial;font-size: 11px;}
+button {height: 30px;text-transform: uppercase;margin: 10px;}
+a {text-decoration: none;letter-spacing: 1px;color: #0000ff;font-size: 10px;text-transform: uppercase;}
+input {min-width: 200px;height: 30px;line-height: 30px;color: #000;}
+.overlayDiv {display:none;background: #ccc;height:100%;width:100%;overflow: hidden;position: absolute;top:0;left: 0;}
+.mainDiv {display:block;width:100%;float: left;margin: 0px;padding: 0px;}
+.buttonDiv {float: left;margin: 100px auto;width: 100%;height: 200px;overflow: auto;text-align: center;}
+.modalBox {width: 500px;height: 300px;margin: 100px auto 100px auto;position: relative;display: none;}
+.modalAlert {width: 500px;height: 350px;position: relative;float: left;background: #fff;}
+.modalHead {background: #0B1D56;height: 40px;width: 100%;float: left;margin: 0px;font-weight: bold;color: #fff;}
+.modalTitle {float: left;margin: 12px 0 0 15px;text-transform: uppercase;}
+.modalClose {float: right;margin: 12px 15px 0 0;cursor: pointer;}
+.modalBody {float: left;width: 100%;overflow: auto;color: #000;}
+.calltoaction {text-align: center;margin: 10px 0 0 0;text-transform: uppercase;}
+.modalDescription {text-align: center;margin: 20px 10px 10px 10px;height: 260px;border: 1px solid #ccc;overflow: auto;}
+table {border:1px solid #ccc;border-collapse: collapse;width:100%;}
+th {font-weight: bold;height: 40px;letter-spacing: 1px;text-transform:uppercase;}
+td {height: 40px;letter-spacing: 1px;overflow-wrap: break-word;word-wrap: break-word;word-break: break-word;line-height: 20px;vertical-align: middle;text-align: center;}
+.headDiv {float: left;border: 1px solid #ccc;height: 30px;line-height: 30px;margin:5px;font-weight: bold;font-size: 12px;text-transform: uppercase;letter-spacing: 1px;text-indent: 10px;width: 99%;text-align: center;}
+.dataDiv {float: left;margin:5px;width: 99%;}

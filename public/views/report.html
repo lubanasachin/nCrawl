@@ -1,0 +1,38 @@
+<div class="overlayDiv" id="overlayDiv">
+	<div class="modalBox" style="display: block;">
+		<div class="modalHead">
+			<div class="modalTitle" id="boxTitle"></div>
+			<div class="modalClose" ng-click="closeModal();">X</div>
+		</div>
+		<div class="modalBody">
+			<div class="modalAlert">
+				<div class="modalDescription" id="boxMessage"></div>
+				<div class="calltoaction">
+					<button ng-click="closeModal();">Ok</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class='headDiv'>Web Crawling Report <div style='float:right;margin-right: 30px;text-transform: lowercase;'>({{totalRecords}} records)</div></div>
+<div class='dataDiv'>
+<table border="1">
+	<thead>
+		<tr>
+			<th style='width:25%;'>Link</th>
+			<th style='width:25%;'>Image</th>
+			<th style='width:25%;'>Script</th>
+			<th style='width:20%;'>Stylesheet</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="row in reportData">
+			<td>{{row.link}}</td>
+			<td>{{row.images.length}} <a href='#' ng-click="showModal(row.link,'image',row.images);">(view)</a></td>
+			<td>{{row.js.length}} <a href='#' ng-click="showModal(row.link,'script',row.js);">(view)</a></td>
+			<td>{{row.css.length}} <a href='#' ng-click="showModal(row.link,'Stylesheet',row.css);">(view)</a></td>
+		</tr>
+	</tbody>
+</table>		
+</div>
+
