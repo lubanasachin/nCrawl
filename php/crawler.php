@@ -99,12 +99,14 @@ class Crawler {
 	*/
 	private function __getImages($link,$htmlDoc) {
 		$image = $htmlDoc->getElementsByTagName('img');
+		echo "\nImages found:\n";
 		foreach ($image as $imgtag) {
 			$img = trim($imgtag->getAttribute('src'));
 			if(empty($img)) continue;
 			if(substr($img,0,2) == '//') $img = $img;
 			else if(substr($img,0,1) == '/') $img = $this->baseUrl.$img;
 			if(in_array($img,$this->output[$link]['image'])) continue;
+			echo "$img\n";
 			array_push($this->output[$link]['image'],$img);
 		}
 	}
@@ -116,6 +118,7 @@ class Crawler {
 	*/
 	private function __getStyleSheets($link,$htmlDoc) {
 		$css = $htmlDoc->getElementsByTagName('link');
+		echo "\nCSS found:\n";
 		foreach ($css as $csstag) {
 			$rel = trim(strtolower($csstag->getAttribute('rel'))); 
 			if($rel === 'stylesheet') {
@@ -123,6 +126,7 @@ class Crawler {
 				if(empty($cssfile)) continue;
 				if(substr($cssfile,0,1) == '/') $cssfile = $this->baseUrl.$cssfile;
 				if(in_array($cssfile,$this->output[$link]['css'])) continue;
+				echo "$cssfile\n";
 				array_push($this->output[$link]['css'],$cssfile);
 			}
 		}		
@@ -135,12 +139,14 @@ class Crawler {
 	*/
 	private function __getJavascripts($link,$htmlDoc) {
         $script = $htmlDoc->getElementsByTagName('script');
+		echo "\nScripts found:\n";
         foreach ($script as $scrtag) {
             $scr = trim($scrtag->getAttribute('src'));
             if(empty($scr)) continue;
 			if(substr($scr,0,2) == '//') $scr = $scr;
             else if(substr($scr,0,1) == '/') $img = $this->baseUrl.$scr;
             if(in_array($scr,$this->output[$link]['script'])) continue;
+			echo "$scr\n";
             array_push($this->output[$link]['script'],$scr);
         }		
 	}	
